@@ -1,0 +1,80 @@
+.center{
+    align-items: center;
+    position: relative;
+    left: 750px;
+}
+.center2{
+    align-items: center;
+    position: relative;
+    left: 810px;
+}
+.bg{
+    color: rgb(255, 0, 140);
+}
+.color{
+    color: cornflowerblue;
+    background-color: rgb(92, 91, 91);
+}
+#output-frame{
+    color: rgb(0, 17, 255);
+}
+@media (max-width:1050px) {
+    .center{
+        align-items: center;
+        position: relative;
+        left: 470px;
+    }
+    .center2{
+        
+        position: relative;
+        left: 210px;
+    }
+}
+@media (max-width:1025px) {
+    .center{
+        align-items: center;
+        position: relative;
+        left: 570px;
+    }
+    .center2{
+        
+        position: relative;
+        left: 270px;
+    }
+}
+@media (max-width:690px) {
+    .center{
+        align-items: center;
+        position: relative;
+        left: 370px;
+    }
+    .center2{
+        
+        position: relative;
+        left: 40px;
+    }
+}
+@media (max-width:475px) {
+    .center{
+        align-items: center;
+        position: relative;
+        left: 270px;
+    }
+    .center2{
+        
+        position: relative;
+        left: 3px;
+    }
+}
+@media (max-width:378px) {
+    .center{
+        align-items: center;
+        position: relative;
+        left: 150px;
+    }
+    .center2{
+        
+        position: relative;
+        left: -90px;
+    }
+}

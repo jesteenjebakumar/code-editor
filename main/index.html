@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code editor </title>
+    <link rel="stylesheet" href="./assects/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assects/css/normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg bg-primary ">
+    <p class="display-4  bg-white container-lg-fluid container-sm text-center">welcome to code editor <span class="badge badge-info badge-pill m-md-auto text-lowercase embed-responsive table-responsive-sm ">html,css,javascript</span></p>
+    <div class="container-sm   bg-dark  ">
+        <button onclick="listen()" class="btn btn-secondary center  message1" id="change">live button </button>
+        <button onclick="run()" class="btn btn-success bg-success center2 message">run button</button>
+    </div>
+    <!--alert message-->
+    <div class="alert alert-success alert-dismissible fade show" role="alert"><!--fade show is the trasition  -->
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <h4>welcome user,</h4>
+         <p>click the live button  your output will come live you  don't want click the run  button again one click the live button enter the code come fast output if you want disable the live code also you can disable by click again the button </p>
+            <hr class="mt-3">
+            <p class="text-hide">for information,  <a href="/nav.html" class="alert-link text-hide">learn more</a> </p>
+         
+         </div>
+    <br><br><br>
+    <div class="codeeditor container">
+        <p class="h1 text-uppercase bg">HTML</p>
+        <textarea name="html" id="html-area" cols="50" rows="12" class="container color"></textarea>
+        <p class="h1 text-uppercase bg">css</p>
+        <textarea name="css" id="css-area" cols="50" rows="12" class="container color"></textarea>
+        <p class="h1 text-uppercase bg" >javascript</p>
+        <textarea name="javascript" id="javascript-area" cols="50" rows="12" class="container color "></textarea>
+    </div>
+</body>
+
+<div class="outputeditor container" >
+    <p class="h1 bg text-uppercase ">output</p>
+    <iframe src="" frameborder="2" width="1200" class="container  bg-success" height="250" id="output-frame"></iframe>
+</div>
+    <script>
+        let htmlcode=document.querySelector('.codeeditor #html-area');
+                let csscode=document.querySelector('.codeeditor #css-area');
+                let javascriptcode=document.querySelector('.codeeditor #javascript-area');
+        function run() {
+            let htmlcode=document.querySelector('.codeeditor #html-area').value;
+            let csscode="<style>"+document.querySelector('.codeeditor #css-area').value+"</style>";
+            let javascriptcode=document.querySelector('.codeeditor #javascript-area').value;
+         let output=document.querySelector('.outputeditor #output-frame');
+         output.contentDocument.body.innerHTML=htmlcode+csscode;
+         output.contentWindow.eval(javascriptcode);
+        }
+
+   
+        
+        function live() {
+            
+                htmlcode.addEventListener("keyup",run);
+                 csscode.addEventListener("keyup",run);
+                 javascriptcode.addEventListener("keyup",run);
+        }
+
+        function stop() {
+         
+            htmlcode.removeEventListener("keyup",run);
+                 csscode.removeEventListener("keyup",run);
+                 javascriptcode.removeEventListener("keyup",run);
+        }
+        var i=0;
+    function listen() {
+        let htmlcode=document.querySelector('.codeeditor #html-area');
+        let output=document.querySelector('.outputeditor #output-frame');
+                let csscode=document.querySelector('.codeeditor #css-area');
+                let javascriptcode=document.querySelector('.codeeditor #javascript-area');
+                let change=document.getElementById('change');
+        if(i==0){
+            alert('live button activated');
+            i=1;
+           
+        live();
+        change.style.backgroundColor='orange';
+           
+        }
+        else{
+
+              alert('you disable live runnning editor if you want enable click the live button again');
+               stop();
+                 change.style.backgroundColor=null;
+                 output.contentDocument.body.innerHTML=null;
+                 ;
+            i=0;
+        }
+    }
+
+
+
+      
+    </script>
+<script src="./assects/js/bootstrap.min.js"></script>
+<script src="./assects/js/jquery.min.js"></script>
+</html>
